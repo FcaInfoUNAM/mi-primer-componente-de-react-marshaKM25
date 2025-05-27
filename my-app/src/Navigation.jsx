@@ -1,12 +1,14 @@
-
-export function Navigation({srcImg,alt}){
-    return (
-        <nav className="navbar">
-        <a className="navbar-brand" href="#">
-          <img className="nav-item" src={srcImg} width="30" height="30" alt={alt && "NavBar"}/>
-          <a className="nav-item" href="#">FCA</a>
-          <a className="nav-item" href="#">Google</a>
-          <a className="nav-item" href="#">Facebook</a>
-        </a>
-      </nav>)
+export function Navigation({ srcImg, alt, items }) {
+  return (
+    <nav className="navbar">
+      <img src={srcImg} alt={alt} className="logo" />
+      <div className="nav-items">
+        {items.map(e => (
+          <a key={e.title} className="nav-item" href={e.ref} target="_blank" rel="noopener noreferrer">
+            {e.title}
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
 }
